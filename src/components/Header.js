@@ -7,27 +7,15 @@ import Typography from '@material-ui/core/Typography';
 
 const Header = () => {
       const useStyles = makeStyles((theme) => ({
-            root: {
-
-            },
-
-            title: {
-
-            },
-
             content: {
                   justifyContent: 'space-between'
             }
       }));
       const classes = useStyles();
-
       return (
-
-
             <div className={classes.root}>
                   <AppBar position="static">
                         <Toolbar className={classes.content}>
-
                               <Typography variant="h6" className={classes.title} position="left">
                                     FlyM
                               </Typography>

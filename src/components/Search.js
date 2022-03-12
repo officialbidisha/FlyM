@@ -10,14 +10,11 @@ import { useDispatch } from 'react-redux';
 import { dateFormatter } from '../utility/dateFormatter';
 import { useNavigate } from 'react-router-dom';
 const Search = () => {
-
     const [fromLandmark, setFromLandmark] = useState("");
     const [toDestination, setToDestination] = useState("");
     const [date, setDate] = useState("");
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const useStyles = makeStyles((theme) => ({
         root: {
             flexGrow: 1,
@@ -36,34 +33,22 @@ const Search = () => {
         },
 
     }));
-
     const classes = useStyles();
-
     const submitHandler = (event) => {
         event.preventDefault();
-
         let formattedDate = dateFormatter(date);
         dispatch(searchFlights({ to: toDestination, from: fromLandmark, date: formattedDate }));
-
-
         navigate("/browse-page");
-
     }
-
     const destinationChangeHandler = (e) => {
         setToDestination(e.target.value);
     }
-
     const landmarkChangeHandler = e => {
         setFromLandmark(e.target.value)
     }
-
     const dateChangeHandler = e => {
         setDate(e.target.value);
     }
-
-
-
     return (
         <div className={classes.root}>
             <Grid container className={classes.centralised}>
