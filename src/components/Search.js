@@ -5,15 +5,18 @@ import Grid from '@material-ui/core/Grid';
 import searchclasses from './Search.module.css';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
-import {searchFlights}  from '../store/actions/searchFlightActions';
+import { searchFlights } from '../store/actions/searchFlightActions';
 import { useDispatch } from 'react-redux';
+import { dateFormatter } from '../utility/dateFormatter';
+import { useNavigate } from 'react-router-dom';
 const Search = () => {
 
     const [fromLandmark, setFromLandmark] = useState("");
     const [toDestination, setToDestination] = useState("");
     const [date, setDate] = useState("");
-    
+
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -38,7 +41,12 @@ const Search = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        dispatch(searchFlights({to: toDestination, from: fromLandmark, date}));
+
+        let formattedDate = dateFormatter(date);
+        dispatch(searchFlights({ to: toDestination, from: fromLandmark, date: formattedDate }));
+
+
+        navigate("/browse-page");
 
     }
 
@@ -63,13 +71,13 @@ const Search = () => {
                     <Paper className={classes.paper}>
                         <form className={classes.form} onSubmit={submitHandler}>
                             <div className={classes['formfield']}>
-                                <label className={searchclasses['labels']}>From</label>
+                                <label className={searchclasses['labels']}>To</label>
                                 <input type="text" aria-label="ToDestination"
                                     aria-required="true" value={toDestination}
                                     onChange={destinationChangeHandler} required></input>
                             </div>
                             <div className={classes['formfield']}>
-                                <label className={searchclasses.labels}>To</label>
+                                <label className={searchclasses.labels}>From</label>
                                 <input type="text" aria-label="FromLandmark"
                                     value={fromLandmark}
                                     onChange={landmarkChangeHandler}
