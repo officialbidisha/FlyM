@@ -1,15 +1,19 @@
-import { BrowserRouter, Route, Routes, Suspense } from 'react-router-dom';
-import BrowsePage from '../pages/BrowsePage';
-import Home from '../pages/Home';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import { Suspense } from 'react';
+const Home = lazy(() => import('../pages/Home'));
+const BrowsePage = lazy(() => import('../pages/BrowsePage'));
 const RoutePaths = () => {
     return (
         <BrowserRouter>
-            <Routes>
+            <Suspense fallback={<p>Loading...</p>}>
+                <Routes>
 
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/browse-page" element={<BrowsePage/>}></Route>
-            </Routes>
+                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/browse-page" element={<BrowsePage />}></Route>
+
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     )
 }
