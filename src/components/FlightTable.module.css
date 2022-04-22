@@ -1,0 +1,11 @@
+.table-header {
+    background-color: #ade8f4;
+    width: inherit;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #023e8a;
+}

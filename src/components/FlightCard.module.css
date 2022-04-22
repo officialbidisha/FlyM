@@ -1,0 +1,15 @@
+.flight-card{
+    background-color: #023E8A;
+    margin: 5px 0;
+    background-color: #f0f3f7;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-around;
+    height: 67px;
+    align-items: center;
+}
+.airline{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0;
+}
