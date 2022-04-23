@@ -1,11 +1,12 @@
 .table-header {
-    background-color: #ade8f4;
+    background-color: #CAF0F8;
     width: inherit;
-    height: 80px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 600;
     color: #023e8a;
+    height: 46px;
+    padding: 0 35px;
 }

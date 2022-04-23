@@ -1,0 +1,37 @@
+.flight-card{
+    background-color: #023E8A;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    height: 93px;
+    align-items: center;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    padding: 0 30px;
+    color: #CAF0F8
+    
+}
+.airline{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+.arrival{
+    font-size: 25px;
+}
+.duration{
+     font-size: 25px;
+}
+.price{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.airline-image{
+    width: 53px;
+    height: 46px;
+}
+
+.duration-type{
+    display: grid;
+}

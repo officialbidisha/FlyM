@@ -17,7 +17,7 @@ const FlightTable = () => {
         <div className={classes['table-header']}>
             <span className={classes.airline}>Airline</span>
             <span className={classes.arrival}>Arrival</span>
-            <span className={classes.duration}>Departure</span>
+            <span className={classes.duration}>Duration</span>
             <span className={classes.price}>Price</span>
         </div>
     </React.Fragment>
