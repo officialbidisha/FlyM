@@ -11,14 +11,14 @@
 // availableSeats(pin):"300"
 
 import React from "react";
-import classes from './FlightTable.module.css';
+import  './FlightTable.scss';
 const FlightTable = () => {
     return <React.Fragment>
-        <div className={classes['table-header']}>
-            <span className={classes.airline}>Airline</span>
-            <span className={classes.arrival}>Arrival</span>
-            <span className={classes.duration}>Duration</span>
-            <span className={classes.price}>Price</span>
+        <div className="table-header">
+            <span className="airline">Airline</span>
+            <span className="arrival">Arrival</span>
+            <span className="duration">Duration</span>
+            <span className="price">Price</span>
         </div>
     </React.Fragment>
 }

@@ -1,5 +1,17 @@
-.MuiAppBar-colorPrimary{
-    .MuiToolbar-root{
-    background-color: #03045E;
+.MuiAppBar-colorPrimary {
+    .MuiToolbar-root {
+        background-color: #03045e;
+    }
+    .MuiTypography-root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo-image {
+            width: 42px;
+            height: 34px;
+            border-radius: 50%;
+            margin-right: 20px;
+            filter: invert(48%) sepia(-18%) saturate(3207%) hue-rotate(200deg) brightness(95%) contrast(80%);
+        }
     }
 }

@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import "./Header.scss";
+import logo from '../../src/assets/images/logo.jpg';
 
 const Header = () => {
       const useStyles = makeStyles((theme) => ({
@@ -16,7 +17,9 @@ const Header = () => {
             <div className={classes.root}>
                   <AppBar position="static">
                         <Toolbar className={classes.content}>
+                              
                               <Typography variant="h6" className={classes.title} position="left">
+                              <img src={logo} alt="logo-pic" className='logo-image'/>
                                     FlyM
                               </Typography>
                               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />

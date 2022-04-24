@@ -27,13 +27,17 @@ const BrowsePage = () => {
     (state) => state.flights.isFlightDataLoading
   );
 
+  const onNonStopSelection = () => {
+     
+  }
+
   return (
     <React.Fragment> 
       <Header />
       <Box sx={{ flexGrow: 1 }} style={{padding: '5px'}}>
       <Grid container spacing={2}>
         <Grid item xs={4} md={3} sm={4} className='filters'>
-          <Sidebar />
+          <Sidebar onNonStopSelection = {onNonStopSelection}/>
         </Grid>
         <Grid item xs={8} md={9} sm={8} className='table-grid'>
           <Item>
@@ -43,7 +47,7 @@ const BrowsePage = () => {
                 <FlightTable />
                 {flightData.map((flight) => {
                   return (
-                    <FlightCard id={flight._id} flightConfiguration={flight} />
+                    <FlightCard  key={flight._id} id={flight._id} flightConfiguration={flight} />
                   );
                 })}
               </React.Fragment>
