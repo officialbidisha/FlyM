@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { ActionTypes } from "../action-types/action-types";
 
 export const searchFlights = (searchParams) => async (dispatch) => {

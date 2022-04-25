@@ -15,7 +15,6 @@ import "./BrowsePage.scss";
 import {
   clearFlights,
   filterFlights,
-  searchFlights,
 } from "../store/actions/searchFlightActions";
 
 const BrowsePage = () => {
