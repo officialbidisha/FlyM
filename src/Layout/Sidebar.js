@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Checkbox from "@mui/material/Checkbox";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -8,11 +10,23 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Slider from "@mui/material/Slider";
 
-import classes from "./Sidebar.module.css";
+import "./Sidebar.scss";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const [stopsChecked, setStopsChecked] = useState([false, false]);
+
+  const handleClick = (event) => {
+    setStopsChecked([event.target.checked, stopsChecked[1]]);
+    props.sendDataToParent([event.target.checked, stopsChecked[1]]);
+  };
+
+  const handleClick2 = (event) => {
+    setStopsChecked([stopsChecked[0], event.target.checked]);
+    props.sendDataToParent([stopsChecked[0], event.target.checked]);
+  };
+
   return (
-    <div className={classes.sidebar}>
+    <div className="sidebar">
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -23,8 +37,18 @@ const Sidebar = () => {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
-            <FormControlLabel control={<Checkbox />} label="Non Stop" />
-            <FormControlLabel control={<Checkbox />} label="One Stop" />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Non Stop"
+              checked={stopsChecked[0]}
+              onChange={handleClick}
+            />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="One Stop"
+              checked={stopsChecked[1]}
+              onChange={handleClick2}
+            />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
