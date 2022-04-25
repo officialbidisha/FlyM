@@ -17,12 +17,12 @@ const Sidebar = (props) => {
 
   const handleClick = (event) => {
     setStopsChecked([event.target.checked, stopsChecked[1]]);
-    props.sendDataToParent([event.target.checked, stopsChecked[1]]);
+    props.sendStopsSelectionData([event.target.checked, stopsChecked[1]]);
   };
 
   const handleClick2 = (event) => {
     setStopsChecked([stopsChecked[0], event.target.checked]);
-    props.sendDataToParent([stopsChecked[0], event.target.checked]);
+    props.sendStopsSelectionData([stopsChecked[0], event.target.checked]);
   };
 
   return (

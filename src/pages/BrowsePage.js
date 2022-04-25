@@ -21,8 +21,13 @@ import {
 const BrowsePage = () => {
   const dispatch = useDispatch();
 
-  const [isChecked, setIsChecked] = useState([false, false]);
+  const [isStopsChecked, setIsStopsChecked] = useState([false, false]);
 
+  /**
+   * Theme for the grid
+   * @params theme
+   * @returns void 
+   */
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -31,8 +36,9 @@ const BrowsePage = () => {
     color: theme.palette.text.secondary,
   }));
 
-  const sendDataToParent = ([index1, index2]) => {
-    setIsChecked([index1, index2]);
+  
+  const sendStopsSelectionData = ([index1, index2]) => {
+    setIsStopsChecked([index1, index2]);
   };
 
   const flightData = useSelector((state) => state.flights.flights);
@@ -44,14 +50,14 @@ const BrowsePage = () => {
   );
 
   useEffect(() => {
-    if (isChecked[0]) {
+    if (isStopsChecked[0]) {
       dispatch(filterFlights({ filterParams: "Nonstop", flightData }));
-    } else if (isChecked[1]) {
+    } else if (isStopsChecked[1]) {
       dispatch(filterFlights({ filterParams: "1 Stop", flightData }));
     } else {
       dispatch(clearFlights(flightData));
     }
-  }, [isChecked[0], isChecked[1]]);
+  }, [isStopsChecked[0], isStopsChecked[1]]);
 
   return (
     <React.Fragment>
@@ -59,7 +65,7 @@ const BrowsePage = () => {
       <Box sx={{ flexGrow: 1 }} style={{ padding: "5px" }}>
         <Grid container spacing={2}>
           <Grid item xs={4} md={3} sm={4} className="filters">
-            <Sidebar sendDataToParent={sendDataToParent} />
+            <Sidebar sendStopsSelectionData={sendStopsSelectionData} />
           </Grid>
           <Grid item xs={8} md={9} sm={8} className="table-grid">
             <Item>
