@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ActionTypes } from "../action-types/action-types";
+import * as actionTypes from "../action-types/action-types";
 
 export const searchFlights = (searchParams) => async (dispatch) => {
   const { to, from, date } = searchParams;
@@ -18,7 +18,7 @@ export const searchFlights = (searchParams) => async (dispatch) => {
   }
 
   dispatch({
-    type: ActionTypes.SEARCH_FLIGHTS,
+    type: actionTypes.SEARCH_FLIGHTS,
     payload: response.data.ResponseData,
   });
 };
@@ -31,17 +31,21 @@ export const filterFlights =
     switch (filterParams) {
       case "Nonstop": {
         response = flightData.filter((x) => x.type === filterParams);
-        dispatch({ type: ActionTypes.FILTER_FLIGHTS, payload: response });
+        dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });
         break;
       }
       case "1 Stop": {
         response = flightData.filter((x) => x.type === filterParams);
-        dispatch({ type: ActionTypes.FILTER_FLIGHTS, payload: response });
+        dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });
         break;
+      }
+
+      default: {
+        return response;
       }
     }
   };
 
 export const clearFlights = (flightData) => async (dispatch) => {
-  dispatch({ type: ActionTypes.CLEAR_FILTER_FLIGHTS, payload: flightData });
+  dispatch({ type: actionTypes.CLEAR_FILTER_FLIGHTS, payload: flightData });
 };

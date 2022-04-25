@@ -1,6 +1,5 @@
 
 import './App.scss';
-// import './styles/variables.module.scss';
 import RoutePaths from './routes/routes';
 function App() {
   return (

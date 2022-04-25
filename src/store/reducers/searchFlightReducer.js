@@ -1,25 +1,26 @@
-import { ActionTypes } from "../action-types/action-types";
+import { InitialStateType } from ".";
+import * as actionTypes from "../action-types/action-types";
 const initialState = {
   isFlightDataLoading: true,
   flights: [],
   filteredFlights: [],
 };
 
-export const searchFlightsReducer = (state = initialState, action) => {
+export const searchFlightsReducer = (state = initialState, action) : InitialStateType => {
   switch (action.type) {
-    case ActionTypes.SEARCH_FLIGHTS:
+    case actionTypes.SEARCH_FLIGHTS:
       return {
         ...state,
         isFlightDataLoading: false,
         flights: [...action.payload],
       };
-    case ActionTypes.FILTER_FLIGHTS:
+    case actionTypes.FILTER_FLIGHTS:
       return {
         ...state,
         isFlightDataLoading: false,
         filteredFlights: [...action.payload],
       };
-    case ActionTypes.CLEAR_FILTER_FLIGHTS:
+    case actionTypes.CLEAR_FILTER_FLIGHTS:
       return {
         ...state,
         isFlightDataLoading: false,

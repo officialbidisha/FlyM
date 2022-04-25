@@ -57,7 +57,7 @@ const Search = () => {
       <Grid container className={classes.centralised}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <form className={classes.form} onSubmit={submitHandler}>
+            <form className={classes['form']} onSubmit={submitHandler}>
               <div className={classes["formfield"]}>
                 <label className="labels">To</label>
                 <input
