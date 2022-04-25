@@ -21,11 +21,18 @@ const BrowsePage = () => {
   const dispatch = useDispatch();
 
   const [isStopsChecked, setIsStopsChecked] = useState([false, false]);
+  const [isAirlineChecked, setIsAirlineChecked] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   /**
    * Theme for the grid
    * @params theme
-   * @returns void 
+   * @returns void
    */
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -35,9 +42,18 @@ const BrowsePage = () => {
     color: theme.palette.text.secondary,
   }));
 
-  
   const sendStopsSelectionData = ([index1, index2]) => {
     setIsStopsChecked([index1, index2]);
+  };
+
+  const sendAirlineSelectionData = ([
+    index1,
+    index2,
+    index3,
+    index4,
+    index5,
+  ]) => {
+    setIsAirlineChecked([index1, index2, index3, index4, index5]);
   };
 
   const flightData = useSelector((state) => state.flights.flights);
@@ -58,13 +74,46 @@ const BrowsePage = () => {
     }
   }, [isStopsChecked[0], isStopsChecked[1]]);
 
+  useEffect(() => {
+    let modifiedFlightData = filteredFlightData? filteredFlightData: flightData;
+    if (isAirlineChecked[0]) {
+      dispatch(
+        filterFlights({ filterParams: "Air Asia", flightData: modifiedFlightData })
+      );
+    }
+    else if (isAirlineChecked[1]) {
+      dispatch(filterFlights({ filterParams: "Go First",flightData: modifiedFlightData}));
+    }
+    else if (isAirlineChecked[2]) {
+      dispatch(filterFlights({ filterParams: "Indigo", flightData: modifiedFlightData }));
+    }
+    else if (isAirlineChecked[3]) {
+      dispatch(filterFlights({ filterParams: "Spicejet", flightData: modifiedFlightData }));
+    }
+    else if (isAirlineChecked[4]) {
+      dispatch(filterFlights({ filterParams: "Vistara", flightData: modifiedFlightData }));
+    }
+    else{
+      dispatch(clearFlights(flightData));
+    }
+  }, [
+    isAirlineChecked[0],
+    isAirlineChecked[1],
+    isAirlineChecked[2],
+    isAirlineChecked[3],
+    isAirlineChecked[4],
+  ]);
+
   return (
     <React.Fragment>
       <Header />
       <Box sx={{ flexGrow: 1 }} style={{ padding: "5px" }}>
         <Grid container spacing={2}>
           <Grid item xs={4} md={3} sm={4} className="filters">
-            <Sidebar sendStopsSelectionData={sendStopsSelectionData} />
+            <Sidebar
+              sendStopsSelectionData={sendStopsSelectionData}
+              sendAirlineSelectionData={sendAirlineSelectionData}
+            />
           </Grid>
           <Grid item xs={8} md={9} sm={8} className="table-grid">
             <Item>

@@ -14,6 +14,13 @@ import "./Sidebar.scss";
 
 const Sidebar = (props) => {
   const [stopsChecked, setStopsChecked] = useState([false, false]);
+  const [airlineChecked, setAirlineChecked] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   const handleClick = (event) => {
     setStopsChecked([event.target.checked, stopsChecked[1]]);
@@ -23,6 +30,91 @@ const Sidebar = (props) => {
   const handleClick2 = (event) => {
     setStopsChecked([stopsChecked[0], event.target.checked]);
     props.sendStopsSelectionData([stopsChecked[0], event.target.checked]);
+  };
+
+  const checkAirIndia = (event) => {
+    setAirlineChecked(
+      [event.target.checked,
+      airlineChecked[1],
+      airlineChecked[2],
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+    props.sendAirlineSelectionData(
+     [ event.target.checked,
+      airlineChecked[1],
+      airlineChecked[2],
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+  };
+
+  const checkGoFirst = (event) => {
+    setAirlineChecked(
+      [airlineChecked[0],
+      event.target.checked,
+      airlineChecked[2],
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+    props.sendAirlineSelectionData(
+     [ airlineChecked[0],
+      event.target.checked,
+      airlineChecked[2],
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+  };
+
+  const checkIndigo = (event) => {
+    setAirlineChecked(
+     [ airlineChecked[0],
+      airlineChecked[1],
+      event.target.checked,
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+    props.sendAirlineSelectionData(
+      [airlineChecked[0],
+      airlineChecked[1],
+      event.target.checked,
+      airlineChecked[3],
+      airlineChecked[4]]
+    );
+  };
+
+  const checkSpiceJet = (event) => {
+    setAirlineChecked(
+      [airlineChecked[0],
+      airlineChecked[1],
+      airlineChecked[2],
+      event.target.checked,
+      airlineChecked[4]]
+    );
+    props.sendAirlineSelectionData(
+      [airlineChecked[0],
+      airlineChecked[1],
+      airlineChecked[2],
+      event.target.checked,
+      airlineChecked[4]]
+    );
+  };
+
+  const checkVistara = (event) => {
+    setAirlineChecked(
+     [ airlineChecked[0],
+      airlineChecked[1],
+      airlineChecked[2],
+      airlineChecked[3],
+      event.target.checked]
+    );
+    props.sendAirlineSelectionData(
+     [ airlineChecked[0],
+      airlineChecked[1],
+      airlineChecked[2],
+      airlineChecked[3],
+      event.target.checked]
+    );
   };
 
   return (
@@ -63,11 +155,36 @@ const Sidebar = (props) => {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
-            <FormControlLabel control={<Checkbox />} label="Air India" />
-            <FormControlLabel control={<Checkbox />} label="Go First" />
-            <FormControlLabel control={<Checkbox />} label="Indigo" />
-            <FormControlLabel control={<Checkbox />} label="Spice Jet" />
-            <FormControlLabel control={<Checkbox />} label="Vistara" />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Air Asia"
+              checked={airlineChecked[0]}
+              onChange={checkAirIndia}
+            />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Go First"
+              checked={airlineChecked[1]}
+              onChange={checkGoFirst}
+            />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Indigo"
+              checked={airlineChecked[2]}
+              onChange={checkIndigo}
+            />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Spice Jet"
+              checked={airlineChecked[3]}
+              onChange={checkSpiceJet}
+            />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Vistara"
+              checked={airlineChecked[4]}
+              onChange={checkVistara}
+            />
           </FormGroup>
         </AccordionDetails>
       </Accordion>

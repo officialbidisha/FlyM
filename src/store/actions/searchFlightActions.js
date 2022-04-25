@@ -29,6 +29,7 @@ export const filterFlights =
     let response;
 
     switch (filterParams) {
+      
       case "Nonstop": {
         response = flightData.filter((x) => x.type === filterParams);
         dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });
@@ -38,6 +39,15 @@ export const filterFlights =
         response = flightData.filter((x) => x.type === filterParams);
         dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });
         break;
+      }
+
+      case 'Air Asia':
+      case 'Indigo':
+      case 'Spicejet':
+      case 'Go First':
+      case 'Vistara': {
+        response = flightData.filter((x) => x.airline === filterParams);
+        dispatch({type: actionTypes.FILTER_FLIGHTS, payload: response});
       }
 
       default: {

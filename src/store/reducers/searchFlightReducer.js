@@ -6,7 +6,7 @@ const initialState = {
   filteredFlights: [],
 };
 
-export const searchFlightsReducer = (state = initialState, action) : InitialStateType => {
+export const searchFlightsReducer = (state = initialState, action)  => {
   switch (action.type) {
     case actionTypes.SEARCH_FLIGHTS:
       return {
