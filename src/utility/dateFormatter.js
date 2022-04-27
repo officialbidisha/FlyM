@@ -1,4 +1,4 @@
 export const dateFormatter = (date) =>{
-   let arr = date.split('-');
-   return arr[2]+'/'+arr[1]+'/'+arr[0];
+   function pad(s) { return (s < 10) ? '0' + s : s; }
+   return [pad(date.getDate()), pad(date.getMonth()+1), date.getFullYear()].join('/')
 }
