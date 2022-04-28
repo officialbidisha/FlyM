@@ -27,9 +27,8 @@ export const filterFlights =
   ({ filterParams, flightData }) =>
   async (dispatch) => {
     let response;
-
     switch (filterParams) {
-      
+    
       case "Non Stop": {
         response = flightData.filter((x) => x.type === filterParams);
         dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });

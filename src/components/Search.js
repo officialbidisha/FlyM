@@ -43,8 +43,6 @@ const Search = () => {
   const classes = useStyles();
   const submitHandler = (event) => {
     event.preventDefault();
-    debugger;
-    console.log(date);
     let formattedDate = dateFormatter(date);
     dispatch(
       searchFlights({

@@ -66,7 +66,7 @@ const BrowsePage = () => {
 
   useEffect(() => {
     if (isStopsChecked[0]) {
-      dispatch(filterFlights({ filterParams: "Nonstop", flightData }));
+      dispatch(filterFlights({ filterParams: "Non Stop", flightData }));
     } else if (isStopsChecked[1]) {
       dispatch(filterFlights({ filterParams: "1 Stop", flightData }));
     } else {
