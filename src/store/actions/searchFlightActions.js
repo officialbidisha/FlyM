@@ -6,7 +6,7 @@ export const searchFlights = (searchParams) => async (dispatch) => {
   let response;
   try {
     response = await axios.post(
-      "https://fly-m.herokuapp.com/api/v1/flym/search",
+      "https://backendflym.herokuapp.com/flights/getFlights",
       {
         to: to,
         from: from,
@@ -19,7 +19,7 @@ export const searchFlights = (searchParams) => async (dispatch) => {
 
   dispatch({
     type: actionTypes.SEARCH_FLIGHTS,
-    payload: response.data.ResponseData,
+    payload: response.data.responseData,
   });
 };
 
@@ -30,7 +30,7 @@ export const filterFlights =
 
     switch (filterParams) {
       
-      case "Nonstop": {
+      case "Non Stop": {
         response = flightData.filter((x) => x.type === filterParams);
         dispatch({ type: actionTypes.FILTER_FLIGHTS, payload: response });
         break;

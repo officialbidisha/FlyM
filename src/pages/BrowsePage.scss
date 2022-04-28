@@ -8,6 +8,7 @@ $blue-300: #90e0ef;
 $blue-200: #ade8f4;
 $blue-100: #caf0f8;
 .table-grid {
+    background-color: $blue-100;
     .MuiPaper-root {
         padding: 0;
         background-color: $blue-100;
@@ -15,6 +16,7 @@ $blue-100: #caf0f8;
 }
 
 .filters {
+    background-color: $blue-100;
     .MuiPaper-root {
         box-shadow: none;
         margin-bottom: 10px;
