@@ -14,7 +14,7 @@ export const searchFlights = (searchParams) => async (dispatch) => {
       }
     );
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 
   dispatch({
@@ -54,6 +54,11 @@ export const filterFlights =
          dispatch({type:actionTypes.FILTER_FLIGHTS, payload: response});
       }
 
+      case 'Duration': {
+        
+        response = flightData.original.filter ((x) => parseInt(x.duration.substring(0,2)) <= flightData.data   );
+        dispatch({type:actionTypes.FILTER_FLIGHTS, payload: response});
+      }
       default: {
         return response;
       }

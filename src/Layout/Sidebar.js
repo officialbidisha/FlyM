@@ -25,6 +25,17 @@ const Sidebar = (props) => {
   );
   const finalData =
     filteredFlightData.length > 0 ? filteredFlightData : flightData;
+    const [stopsChecked, setStopsChecked] = useState([false, false]);
+  const [airlineChecked, setAirlineChecked] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
+  const [rangeValue, setRangeValue] = useState(10);
+  const [durationValue, setDurationValue] = useState(1);
 
   const handleChange = (event, newValue) => {
     setRangeValue(newValue);
@@ -38,6 +49,18 @@ const Sidebar = (props) => {
     }, 2000);
   };
 
+  const handleDurationChange = (event, newValue) => {
+      setDurationValue(newValue);
+      setTimeout(() => {
+        dispatch(
+          filterFlights({
+            filterParams: "Duration",
+            flightData: { original: flightData, data: newValue },
+          })
+        );
+      }, 2000);
+  }
+
   function valuetext(rangeValue) {
     return `${rangeValue}°C`;
   }
@@ -46,7 +69,7 @@ const Sidebar = (props) => {
     let priceTooltip = document.getElementsByClassName(
       "MuiSlider-valueLabelLabel"
     );
-    for (let i = 0; i < priceTooltip.length; i++) {
+    for (let i = 1; i < priceTooltip.length; i++) {
       if (
         priceTooltip[i].innerHTML.includes(".") ||
         priceTooltip[i].innerHTML.length <= 2
@@ -64,7 +87,7 @@ const Sidebar = (props) => {
     /**
      * Removing decimal
      */
-    for (let i = 0; i < priceTooltip.length; i++) {
+    for (let i = 1; i < priceTooltip.length; i++) {
       if (
         priceTooltip[i].innerHTML.includes(".") ||
         priceTooltip[i].innerHTML.length <= 2
@@ -74,16 +97,7 @@ const Sidebar = (props) => {
     }
   }, [finalData]);
 
-  const [stopsChecked, setStopsChecked] = useState([false, false]);
-  const [airlineChecked, setAirlineChecked] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
 
-  const [rangeValue, setRangeValue] = useState(10);
 
   const handleClick = (event) => {
     setStopsChecked([event.target.checked, stopsChecked[1]]);
@@ -258,15 +272,17 @@ const Sidebar = (props) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <p>Trip Duration</p>
+          <p> Maxmimum Trip Duration</p>
         </AccordionSummary>
         <AccordionDetails>
           <Slider
-            size="small"
-            defaultValue={70}
-            aria-label="Small"
-            valueLabelDisplay="auto"
-          />
+          size="small"
+          defaultValue={1}
+          aria-label="Small"
+          value = {durationValue}
+          valueLabelDisplay="auto"
+          onChange= {handleDurationChange}
+        />
         </AccordionDetails>
       </Accordion>
 
