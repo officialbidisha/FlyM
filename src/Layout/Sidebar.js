@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { filterFlights } from "../store/actions/searchFlightActions";
 
 import Checkbox from "@mui/material/Checkbox";
 import Accordion from "@mui/material/Accordion";
@@ -13,6 +17,63 @@ import Slider from "@mui/material/Slider";
 import "./Sidebar.scss";
 
 const Sidebar = (props) => {
+  const dispatch = useDispatch();
+
+  const flightData = useSelector((state) => state.flights.flights);
+  const filteredFlightData = useSelector(
+    (state) => state.flights.filteredFlights
+  );
+  const finalData =
+    filteredFlightData.length > 0 ? filteredFlightData : flightData;
+
+  const handleChange = (event, newValue) => {
+    setRangeValue(newValue);
+    setTimeout(() => {
+      dispatch(
+        filterFlights({
+          filterParams: "Price",
+          flightData: { original: flightData, data: newValue },
+        })
+      );
+    }, 2000);
+  };
+
+  function valuetext(rangeValue) {
+    return `${rangeValue}°C`;
+  }
+
+  useEffect(() => {
+    let priceTooltip = document.getElementsByClassName(
+      "MuiSlider-valueLabelLabel"
+    );
+    for (let i = 0; i < priceTooltip.length; i++) {
+      if (
+        priceTooltip[i].innerHTML.includes(".") ||
+        priceTooltip[i].innerHTML.length <= 2
+      ) {
+        priceTooltip[i].innerHTML = parseInt(priceTooltip[i].innerHTML * 100);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    let priceTooltip = document.getElementsByClassName(
+      "MuiSlider-valueLabelLabel"
+    );
+
+    /**
+     * Removing decimal
+     */
+    for (let i = 0; i < priceTooltip.length; i++) {
+      if (
+        priceTooltip[i].innerHTML.includes(".") ||
+        priceTooltip[i].innerHTML.length <= 2
+      ) {
+        priceTooltip[i].innerHTML = parseInt(priceTooltip[i].innerHTML * 100);
+      }
+    }
+  }, [finalData]);
+
   const [stopsChecked, setStopsChecked] = useState([false, false]);
   const [airlineChecked, setAirlineChecked] = useState([
     false,
@@ -21,6 +82,8 @@ const Sidebar = (props) => {
     false,
     false,
   ]);
+
+  const [rangeValue, setRangeValue] = useState(10);
 
   const handleClick = (event) => {
     setStopsChecked([event.target.checked, stopsChecked[1]]);
@@ -33,88 +96,88 @@ const Sidebar = (props) => {
   };
 
   const checkAirIndia = (event) => {
-    setAirlineChecked(
-      [event.target.checked,
+    setAirlineChecked([
+      event.target.checked,
       airlineChecked[1],
       airlineChecked[2],
       airlineChecked[3],
-      airlineChecked[4]]
-    );
-    props.sendAirlineSelectionData(
-     [ event.target.checked,
+      airlineChecked[4],
+    ]);
+    props.sendAirlineSelectionData([
+      event.target.checked,
       airlineChecked[1],
       airlineChecked[2],
       airlineChecked[3],
-      airlineChecked[4]]
-    );
+      airlineChecked[4],
+    ]);
   };
 
   const checkGoFirst = (event) => {
-    setAirlineChecked(
-      [airlineChecked[0],
+    setAirlineChecked([
+      airlineChecked[0],
       event.target.checked,
       airlineChecked[2],
       airlineChecked[3],
-      airlineChecked[4]]
-    );
-    props.sendAirlineSelectionData(
-     [ airlineChecked[0],
+      airlineChecked[4],
+    ]);
+    props.sendAirlineSelectionData([
+      airlineChecked[0],
       event.target.checked,
       airlineChecked[2],
       airlineChecked[3],
-      airlineChecked[4]]
-    );
+      airlineChecked[4],
+    ]);
   };
 
   const checkIndigo = (event) => {
-    setAirlineChecked(
-     [ airlineChecked[0],
+    setAirlineChecked([
+      airlineChecked[0],
       airlineChecked[1],
       event.target.checked,
       airlineChecked[3],
-      airlineChecked[4]]
-    );
-    props.sendAirlineSelectionData(
-      [airlineChecked[0],
+      airlineChecked[4],
+    ]);
+    props.sendAirlineSelectionData([
+      airlineChecked[0],
       airlineChecked[1],
       event.target.checked,
       airlineChecked[3],
-      airlineChecked[4]]
-    );
+      airlineChecked[4],
+    ]);
   };
 
   const checkSpiceJet = (event) => {
-    setAirlineChecked(
-      [airlineChecked[0],
+    setAirlineChecked([
+      airlineChecked[0],
       airlineChecked[1],
       airlineChecked[2],
       event.target.checked,
-      airlineChecked[4]]
-    );
-    props.sendAirlineSelectionData(
-      [airlineChecked[0],
+      airlineChecked[4],
+    ]);
+    props.sendAirlineSelectionData([
+      airlineChecked[0],
       airlineChecked[1],
       airlineChecked[2],
       event.target.checked,
-      airlineChecked[4]]
-    );
+      airlineChecked[4],
+    ]);
   };
 
   const checkVistara = (event) => {
-    setAirlineChecked(
-     [ airlineChecked[0],
+    setAirlineChecked([
+      airlineChecked[0],
       airlineChecked[1],
       airlineChecked[2],
       airlineChecked[3],
-      event.target.checked]
-    );
-    props.sendAirlineSelectionData(
-     [ airlineChecked[0],
+      event.target.checked,
+    ]);
+    props.sendAirlineSelectionData([
+      airlineChecked[0],
       airlineChecked[1],
       airlineChecked[2],
       airlineChecked[3],
-      event.target.checked]
-    );
+      event.target.checked,
+    ]);
   };
 
   return (
@@ -213,14 +276,16 @@ const Sidebar = (props) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <p>Price</p>
+          <p> Minimum Price</p>
         </AccordionSummary>
         <AccordionDetails>
           <Slider
             size="small"
-            defaultValue={70}
-            aria-label="Small"
-            valueLabelDisplay="auto"
+            getAriaLabel={() => "Price"}
+            valueLabelDisplay="on"
+            value={rangeValue}
+            onChange={handleChange}
+            getAriaValueText={valuetext}
           />
         </AccordionDetails>
       </Accordion>

@@ -27,7 +27,6 @@ export const filterFlights =
   ({ filterParams, flightData }) =>
   async (dispatch) => {
     let response;
-    debugger;
     switch (filterParams) {
     
       case "Non Stop": {
@@ -48,6 +47,11 @@ export const filterFlights =
       case 'Vistara': {
         response = flightData.filter((x) => x.airline === filterParams);
         dispatch({type: actionTypes.FILTER_FLIGHTS, payload: response});
+      }
+
+      case 'Price': {
+         response = flightData.original.filter((x)=> x.price >= Math.round( flightData.data*100)) ;
+         dispatch({type:actionTypes.FILTER_FLIGHTS, payload: response});
       }
 
       default: {

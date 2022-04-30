@@ -19,7 +19,6 @@ import {
 import NotFound from "../Layout/NotFound";
 
 const BrowsePage = () => {
-  debugger;
   const dispatch = useDispatch();
 
   const [isStopsChecked, setIsStopsChecked] = useState([false, false]);

@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export const searchFlightsReducer = (state = initialState, action)  => {
-  debugger;
   switch (action.type) {
     case actionTypes.SEARCH_FLIGHTS:
       return {
