@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FlyM/static/css/main.803f863f.css",
-    "main.js": "/FlyM/static/js/main.0f7f0bfb.js",
+    "main.css": "/FlyM/static/css/main.3e416b70.css",
+    "main.js": "/FlyM/static/js/main.b7481871.js",
     "static/css/944.4bcd8c28.chunk.css": "/FlyM/static/css/944.4bcd8c28.chunk.css",
     "static/js/944.698c5e4c.chunk.js": "/FlyM/static/js/944.698c5e4c.chunk.js",
     "static/css/869.99f0339e.chunk.css": "/FlyM/static/css/869.99f0339e.chunk.css",
@@ -12,8 +12,8 @@
     "static/media/spicejet.png": "/FlyM/static/media/spicejet.1ee8b6d381d25a6bd150.png",
     "static/media/logo.jpg": "/FlyM/static/media/logo.4f63742a3a29a9c93c58.jpg",
     "index.html": "/FlyM/index.html",
-    "main.803f863f.css.map": "/FlyM/static/css/main.803f863f.css.map",
-    "main.0f7f0bfb.js.map": "/FlyM/static/js/main.0f7f0bfb.js.map",
+    "main.3e416b70.css.map": "/FlyM/static/css/main.3e416b70.css.map",
+    "main.b7481871.js.map": "/FlyM/static/js/main.b7481871.js.map",
     "944.4bcd8c28.chunk.css.map": "/FlyM/static/css/944.4bcd8c28.chunk.css.map",
     "944.698c5e4c.chunk.js.map": "/FlyM/static/js/944.698c5e4c.chunk.js.map",
     "869.99f0339e.chunk.css.map": "/FlyM/static/css/869.99f0339e.chunk.css.map",
@@ -22,7 +22,7 @@
     "573.bd684da4.chunk.js.map": "/FlyM/static/js/573.bd684da4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.803f863f.css",
-    "static/js/main.0f7f0bfb.js"
+    "static/css/main.3e416b70.css",
+    "static/js/main.b7481871.js"
   ]
 }
