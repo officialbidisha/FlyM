@@ -51,7 +51,7 @@ const Search = () => {
         date: formattedDate,
       })
     );
-    navigate("/browse-page");
+    navigate("/FlyM/browse-page");
   };
 
   /**

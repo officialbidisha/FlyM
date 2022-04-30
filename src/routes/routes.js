@@ -12,8 +12,8 @@ const RoutePaths = () => {
             }>
                 <Routes>
 
-                    <Route path="/FlyM/" element={<Home />}></Route>
-                    <Route path="/browse-page" element={<BrowsePage />}></Route>
+                    <Route path="/FlyM/" element={<Spinner />}></Route>
+                    <Route path="/FlyM/browse-page" element={<BrowsePage />}></Route>
 
                 </Routes>
             </Suspense>
