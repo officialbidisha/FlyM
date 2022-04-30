@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/FlyM/static/css/main.abdbc9d8.css",
-    "main.js": "/FlyM/static/js/main.e8527684.js",
-    "static/css/944.4bcd8c28.chunk.css": "/FlyM/static/css/944.4bcd8c28.chunk.css",
-    "static/js/944.92bb616c.chunk.js": "/FlyM/static/js/944.92bb616c.chunk.js",
-    "static/css/869.99f0339e.chunk.css": "/FlyM/static/css/869.99f0339e.chunk.css",
-    "static/js/869.ef396d4e.chunk.js": "/FlyM/static/js/869.ef396d4e.chunk.js",
+    "main.css": "/FlyM/static/css/main.e4b09631.css",
+    "main.js": "/FlyM/static/js/main.559b583b.js",
+    "static/css/944.2fbb08ff.chunk.css": "/FlyM/static/css/944.2fbb08ff.chunk.css",
+    "static/js/944.96124ac2.chunk.js": "/FlyM/static/js/944.96124ac2.chunk.js",
+    "static/css/798.61384812.chunk.css": "/FlyM/static/css/798.61384812.chunk.css",
+    "static/js/798.ba4bd7d9.chunk.js": "/FlyM/static/js/798.ba4bd7d9.chunk.js",
     "static/js/759.c50f610e.chunk.js": "/FlyM/static/js/759.c50f610e.chunk.js",
     "static/js/573.bd684da4.chunk.js": "/FlyM/static/js/573.bd684da4.chunk.js",
+    "static/media/notFound.jpg": "/FlyM/static/media/notFound.5d04090cc6fd9e2b244a.jpg",
     "static/media/flying.png": "/FlyM/static/media/flying.bad8ad205ed2e43011b4.png",
     "static/media/spicejet.png": "/FlyM/static/media/spicejet.1ee8b6d381d25a6bd150.png",
     "static/media/logo.jpg": "/FlyM/static/media/logo.4f63742a3a29a9c93c58.jpg",
     "index.html": "/FlyM/index.html",
-    "main.abdbc9d8.css.map": "/FlyM/static/css/main.abdbc9d8.css.map",
-    "main.e8527684.js.map": "/FlyM/static/js/main.e8527684.js.map",
-    "944.4bcd8c28.chunk.css.map": "/FlyM/static/css/944.4bcd8c28.chunk.css.map",
-    "944.92bb616c.chunk.js.map": "/FlyM/static/js/944.92bb616c.chunk.js.map",
-    "869.99f0339e.chunk.css.map": "/FlyM/static/css/869.99f0339e.chunk.css.map",
-    "869.ef396d4e.chunk.js.map": "/FlyM/static/js/869.ef396d4e.chunk.js.map",
+    "main.e4b09631.css.map": "/FlyM/static/css/main.e4b09631.css.map",
+    "main.559b583b.js.map": "/FlyM/static/js/main.559b583b.js.map",
+    "944.2fbb08ff.chunk.css.map": "/FlyM/static/css/944.2fbb08ff.chunk.css.map",
+    "944.96124ac2.chunk.js.map": "/FlyM/static/js/944.96124ac2.chunk.js.map",
+    "798.61384812.chunk.css.map": "/FlyM/static/css/798.61384812.chunk.css.map",
+    "798.ba4bd7d9.chunk.js.map": "/FlyM/static/js/798.ba4bd7d9.chunk.js.map",
     "759.c50f610e.chunk.js.map": "/FlyM/static/js/759.c50f610e.chunk.js.map",
     "573.bd684da4.chunk.js.map": "/FlyM/static/js/573.bd684da4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.abdbc9d8.css",
-    "static/js/main.e8527684.js"
+    "static/css/main.e4b09631.css",
+    "static/js/main.559b583b.js"
   ]
 }
