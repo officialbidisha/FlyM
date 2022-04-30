@@ -6,6 +6,7 @@ import indigo from "./../assets/images/indigo.png";
 import spicejet from "./../assets/images/spicejet.png";
 import vistara from "./../assets/images/vistara.png";
 const FlightCard = ({ flightConfiguration, id }) => {
+  console.log(flightConfiguration);
   const { airline, arrival, duration, price, type } = flightConfiguration;
 
   const getAirlineImage = (airline) => {

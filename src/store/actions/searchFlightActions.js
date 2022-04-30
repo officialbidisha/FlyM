@@ -27,6 +27,7 @@ export const filterFlights =
   ({ filterParams, flightData }) =>
   async (dispatch) => {
     let response;
+    debugger;
     switch (filterParams) {
     
       case "Non Stop": {

@@ -16,8 +16,10 @@ import {
   clearFlights,
   filterFlights,
 } from "../store/actions/searchFlightActions";
+import NotFound from "../Layout/NotFound";
 
 const BrowsePage = () => {
+  debugger;
   const dispatch = useDispatch();
 
   const [isStopsChecked, setIsStopsChecked] = useState([false, false]);
@@ -60,6 +62,7 @@ const BrowsePage = () => {
   const filteredFlightData = useSelector(
     (state) => state.flights.filteredFlights
   );
+  const lastAction = useSelector((state) => state.flights.lastAction);
   const isFlightDataLoading = useSelector(
     (state) => state.flights.isFlightDataLoading
   );
@@ -75,25 +78,45 @@ const BrowsePage = () => {
   }, [isStopsChecked[0], isStopsChecked[1]]);
 
   useEffect(() => {
-    let modifiedFlightData = filteredFlightData? filteredFlightData: flightData;
+    let modifiedFlightData = filteredFlightData
+      ? filteredFlightData
+      : flightData;
     if (isAirlineChecked[0]) {
       dispatch(
-        filterFlights({ filterParams: "Air Asia", flightData: modifiedFlightData })
+        filterFlights({
+          filterParams: "Air Asia",
+          flightData: modifiedFlightData,
+        })
       );
-    }
-    else if (isAirlineChecked[1]) {
-      dispatch(filterFlights({ filterParams: "Go First",flightData: modifiedFlightData}));
-    }
-    else if (isAirlineChecked[2]) {
-      dispatch(filterFlights({ filterParams: "Indigo", flightData: modifiedFlightData }));
-    }
-    else if (isAirlineChecked[3]) {
-      dispatch(filterFlights({ filterParams: "Spicejet", flightData: modifiedFlightData }));
-    }
-    else if (isAirlineChecked[4]) {
-      dispatch(filterFlights({ filterParams: "Vistara", flightData: modifiedFlightData }));
-    }
-    else{
+    } else if (isAirlineChecked[1]) {
+      dispatch(
+        filterFlights({
+          filterParams: "Go First",
+          flightData: modifiedFlightData,
+        })
+      );
+    } else if (isAirlineChecked[2]) {
+      dispatch(
+        filterFlights({
+          filterParams: "Indigo",
+          flightData: modifiedFlightData,
+        })
+      );
+    } else if (isAirlineChecked[3]) {
+      dispatch(
+        filterFlights({
+          filterParams: "Spicejet",
+          flightData: modifiedFlightData,
+        })
+      );
+    } else if (isAirlineChecked[4]) {
+      dispatch(
+        filterFlights({
+          filterParams: "Vistara",
+          flightData: modifiedFlightData,
+        })
+      );
+    } else {
       dispatch(clearFlights(flightData));
     }
   }, [
@@ -120,8 +143,11 @@ const BrowsePage = () => {
               {isFlightDataLoading && <p>Loading</p>}
               {flightData.length > 0 && (
                 <React.Fragment>
-                  <FlightTable />
-                  {!filteredFlightData?.length > 0
+                  {! (!filteredFlightData?.length > 0 &&
+                  lastAction !== "Filter Flights") &&  filteredFlightData.length !== 0 &&
+                  <FlightTable />}
+                  {!filteredFlightData?.length > 0 &&
+                  lastAction !== "Filter Flights"
                     ? flightData.map((flight) => {
                         return (
                           <FlightCard
@@ -131,6 +157,8 @@ const BrowsePage = () => {
                           />
                         );
                       })
+                    :( filteredFlightData.length === 0)? 
+                     <NotFound message="Sorry for the inconvenience. We could not find any flights!"/>
                     : filteredFlightData.map((flight) => {
                         return (
                           <FlightCard
