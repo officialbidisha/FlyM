@@ -1,7 +1,7 @@
 {
   "name": "flym",
   "version": "0.1.0",
-  "homepage": "https://officialbidisha.github.io/FlyM/",
+  "homepage": "http://officialbidisha.github.io/FlyM",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
