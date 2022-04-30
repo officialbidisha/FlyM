@@ -1,12 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Suspense } from 'react';
+import Spinner from './../Layout/Spinner'
 const Home = lazy(() => import('../pages/Home'));
 const BrowsePage = lazy(() => import('../pages/BrowsePage'));
 const RoutePaths = () => {
     return (
         <BrowserRouter>
-            <Suspense fallback={<p>Loading...</p>}>
+            <Suspense fallback={
+                <Spinner/>
+            }>
                 <Routes>
 
                     <Route path="/FlyM/" element={<Home />}></Route>
