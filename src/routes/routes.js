@@ -9,7 +9,7 @@ const RoutePaths = () => {
             <Suspense fallback={<p>Loading...</p>}>
                 <Routes>
 
-                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/FlyM/" element={<Home />}></Route>
                     <Route path="/browse-page" element={<BrowsePage />}></Route>
 
                 </Routes>
