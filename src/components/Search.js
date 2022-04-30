@@ -171,14 +171,16 @@ const Search = () => {
     <div className="search">
       <div className={classes.root}>
         <Grid container className={classes.centralised}>
-          <Grid item xs={1} md={6} xl={6}>
+          <Grid item xs={6} md={6} xl={6}>
             <img src={flying} className="home-image"></img>
           </Grid>
-          <Grid item xs={11} md={6} xl={6} className="form-container">
+          <Grid item xs={6} md={6} xl={6} className="form-container">
             <Paper className={classes.paper}>
+              <p className="marquee">Welcome to the FlyM</p>
+              <p className="marquee-description">Flight booking made easy with just one click!</p>
               <form className={classes["form"]} onSubmit={submitHandler}>
                 <div className={classes["formfield"]}>
-                  <label className="labels">To</label>
+                  <label className="labels">Select your destination</label>
                   <div className="TypeAheadDropDown">
                     <input
                       type="text"
@@ -192,7 +194,7 @@ const Search = () => {
                   </div>
                 </div>
                 <div className={classes["formfield"]}>
-                  <label className="labels">From</label>
+                  <label className="labels">Select your location</label>
                   <div className="TypeAheadDropDown">
                     <input
                       type="text"
@@ -220,8 +222,8 @@ const Search = () => {
                   ></input> */}
                   </div>
                 </div>
-                <Button color="primary" type="submit">
-                  Submit
+                <Button color="primary" type="submit" className="search-flights-button">
+                  Search Flights
                 </Button>
               </form>
             </Paper>

@@ -1,23 +1,34 @@
 .search {
+    .marquee {
+        font-size: 23px;
+        font-weight: bold;
+        color: #03045e;
+    }
+    .marquee-description {
+        color: #48cae4;
+        margin-bottom: 26px;
+        font-size: 16px;
+    }
     .labels {
         display: block;
+        margin: auto;
+        width: 85%;
+        display: flex;
+        margin-bottom: 5px;
     }
 
     .MuiGrid-root {
-        height: calc(100vh - 68px);
-
         .MuiGrid-root {
-            height: inherit;
+            background-color: white;
             .home-image {
                 width: -webkit-fill-available;
-                height: inherit;
+                height: 100%;
             }
         }
     }
 
     .form-container {
         .MuiPaper-root {
-            height: inherit;
             box-shadow: none;
             padding: 0;
             border-radius: 0;
@@ -25,14 +36,10 @@
     }
 
     .TypeAheadDropDown {
-        // border: 1px solid gray;
         box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
         color: rgba(0, 0, 0, 0.73);
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
         margin: auto;
         width: 85%;
     }
@@ -82,6 +89,21 @@
             &:focus-visible {
                 outline-color: transparent;
             }
+        }
+    }
+
+    .search-flights-button {
+        margin-top: 20px;
+        width: 41%;
+        background: #03045e;
+        color: #caf0f8;
+        font-weight: bold;
+        &:hover {
+            background: #caf0f8;
+            color: #03045e;
+            font-weight: bold;
+            transition-delay: 80ms;
+            transition-timing-function: ease-in-out;
         }
     }
 }

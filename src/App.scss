@@ -10,11 +10,9 @@ $blue-100: #caf0f8;
 .App {
   text-align: center;
   background-color: $blue-100;
-  height: 100%;
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
 }
 
@@ -26,7 +24,7 @@ $blue-100: #caf0f8;
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

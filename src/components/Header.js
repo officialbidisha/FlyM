@@ -22,7 +22,7 @@ const Header = () => {
                               <img src={logo} alt="logo-pic" className='logo-image'/>
                                     FlyM
                               </Typography>
-                              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                              <Avatar  src="/static/images/avatar/1.jpg" />
                         </Toolbar>
                   </AppBar>
             </div>
