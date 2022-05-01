@@ -169,7 +169,7 @@ const Search = () => {
 
   return (
     <div className="search">
-      <div className={classes.root}>
+      <div className={`grid ${classes.root}`}>
         <Grid container className={classes.centralised}>
           <Grid item xs={6} md={6} xl={6}>
             <img src={flying} className="home-image"></img>

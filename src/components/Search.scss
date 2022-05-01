@@ -1,4 +1,11 @@
 .search {
+    height: calc( 100% - 66px);
+    .grid{
+        height: calc( 100% - 2px);
+        // .{
+        //     height: calc( 100%);
+        // }
+    }
     .marquee {
         font-size: 23px;
         font-weight: bold;
@@ -18,6 +25,7 @@
     }
 
     .MuiGrid-root {
+        height: calc( 100%);
         .MuiGrid-root {
             background-color: white;
             .home-image {
