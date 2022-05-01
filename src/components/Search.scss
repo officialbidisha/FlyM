@@ -1,10 +1,8 @@
 .search {
-    height: calc( 100% - 66px);
-    .grid{
-        height: calc( 100% - 2px);
-        // .{
-        //     height: calc( 100%);
-        // }
+    height: calc(100% - 66px);
+
+    .grid {
+        height: calc(100% - 2px);
     }
     .marquee {
         font-size: 23px;
@@ -25,7 +23,7 @@
     }
 
     .MuiGrid-root {
-        height: calc( 100%);
+        height: calc(100%);
         .MuiGrid-root {
             background-color: white;
             .home-image {
@@ -112,6 +110,17 @@
             font-weight: bold;
             transition-delay: 80ms;
             transition-timing-function: ease-in-out;
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        .left {
+            display: none;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 100%;
+            flex-basis: 100%;
         }
     }
 }

@@ -171,7 +171,7 @@ const Search = () => {
     <div className="search">
       <div className={`grid ${classes.root}`}>
         <Grid container className={classes.centralised}>
-          <Grid item xs={6} md={6} xl={6}>
+          <Grid item xs={6} md={6} xl={6} className="left">
             <img src={flying} className="home-image"></img>
           </Grid>
           <Grid item xs={6} md={6} xl={6} className="form-container">
