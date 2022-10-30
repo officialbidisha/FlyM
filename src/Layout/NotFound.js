@@ -5,7 +5,7 @@ const NotFound = (props) => {
   return (
     <React.Fragment>
       <div className="not-found-page">
-        <img src={notFound} alt="Not found" className="not-found" />
+        <img src={notFound} alt="Not found" className="not-found" loading="eager"/>
         <p className="not-found-message"> {props.message}</p>
       </div>
     </React.Fragment>
