@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import "./Search.scss";
 import axios from "axios";
 import flying from "./../assets/images/flying.png";
+import flyingAvif from "./../assets/images/flying.avif";
+import flyingWebp from "./../assets/images/flying.webp"
 
 import DatePicker from "react-datepicker";
 
@@ -172,7 +174,11 @@ const Search = () => {
       <div className={`grid ${classes.root}`}>
         <Grid container className={classes.centralised}>
           <Grid item xs={6} md={6} xl={6} className="left">
-            <img src={flying} className="home-image" loading="eager" fetchpriority="high"></img>
+            <picture>
+              <source srcSet={flyingAvif} type="image/avif" loading="eager" fetchpriority="high"></source>
+              <source srcSet={flyingWebp} type="image/webp" loading="eager" fetchpriority="high"></source>
+              <img src={flying} className="home-image" loading="eager" fetchpriority="high"></img>
+            </picture>
           </Grid>
           <Grid item xs={6} md={6} xl={6} className="form-container">
             <Paper className={classes.paper}>
