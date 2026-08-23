@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { dateFormatter } from "../utility/dateFormatter";
 import { useNavigate } from "react-router-dom";
 import "./Search.scss";
-import axios from "axios";
+import { destinations } from "../data/mockData";
 import flying from "./../assets/images/flying.png";
 import flyingAvif from "./../assets/images/flying.avif";
 import flyingWebp from "./../assets/images/flying.webp"
@@ -64,13 +64,7 @@ const Search = () => {
   const destinationChangeHandler = async (e) => {
     setToDestination(e.target.value);
     let value = e.target.value;
-    const list = await axios.get(
-      "https://backendflym.herokuapp.com/api/getAll"
-    );
-    let items = [];
-    list.data.forEach((listItem) => {
-      items.push(listItem.name);
-    });
+    let items = destinations.map((listItem) => listItem.name);
 
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, `i`);
@@ -116,13 +110,7 @@ const Search = () => {
   const sourceChangeHandler = async (e) => {
     setFromLandmark(e.target.value);
     let value = e.target.value;
-    const list = await axios.get(
-      "https://backendflym.herokuapp.com/api/getAll"
-    );
-    let items = [];
-    list.data.forEach((listItem) => {
-      items.push(listItem.name);
-    });
+    let items = destinations.map((listItem) => listItem.name);
 
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, `i`);

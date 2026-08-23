@@ -1,25 +1,13 @@
-import axios from "axios";
 import * as actionTypes from "../action-types/action-types";
+import { generateFlights } from "../../data/mockData";
 
 export const searchFlights = (searchParams) => async (dispatch) => {
   const { to, from, date } = searchParams;
-  let response;
-  try {
-    response = await axios.post(
-      "https://backendflym.herokuapp.com/flights/getFlights",
-      {
-        to: to,
-        from: from,
-        date: date,
-      }
-    );
-  } catch (err) {
-    console.error(err);
-  }
+  const flights = generateFlights(to, from, date);
 
   dispatch({
     type: actionTypes.SEARCH_FLIGHTS,
-    payload: response.data.responseData,
+    payload: flights,
   });
 };
 
